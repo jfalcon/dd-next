@@ -1,0 +1,13 @@
+// don't use ? since we want to be explicit via nulls, also, in
+// strict mode, strings cannot be undefined or null by default
+export interface UserProps {
+  createdAt: Date;
+  email: string;
+  emailVerified: boolean;
+  id: string;
+  image: string | null;
+  isAdmin: boolean;
+  name: string;
+  password: string;
+  updatedAt: Date | null;
+}

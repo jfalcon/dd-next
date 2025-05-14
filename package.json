@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbo",
     "lint": "next lint",
     "prepare": "husky",
     "start": "next start",
@@ -20,6 +20,12 @@
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix --cache-location ./node_modules/.cache/.eslintcache"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.0",
+    "@mui/material-nextjs": "^7.1.0",
+    "@mui/system": "^7.1.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

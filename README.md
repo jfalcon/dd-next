@@ -8,6 +8,7 @@ approximately. It can be shimmed or polyfilled to support older browsers if nece
 * Accessibility Checks (a11y)
 * Ancillary Tool Scripts / Task Runners
 * Automated Spellcheck
+* CSS Variable Theming
 * Conventional Commits Linting
 * EditorConfig Support
 * Gated Commits (overridden with --no-verify)
@@ -17,8 +18,9 @@ approximately. It can be shimmed or polyfilled to support older browsers if nece
 * Lint Config Overrides
 * Markdown GitHub Preview
 * Markdown Linting
-* Material UI
+* Material UI 7
 * Next.js App Routing
+* React.js 19
 * System Memory Checks
 * Strict NVM and NPM Checks
 * VS Code Extension Recommendations
@@ -35,8 +37,16 @@ grep -irl '`.*- Need to disable some ESLint rules?' \
   sed -i -e 's/`.*- Need to disable some ESLint rules?.*`/'\'\''/g'
 ```
 
+## Considerations
+
+Once Pigment CSS (Zero-Runtime CSS-in-JS) becomes stable enough for the enterprise and compatible
+with Turbopack, it should be considered as to remove the runtime performance hit of using styles
+via JavaScript.
+
 ## Notes
 
 Next.js 15 requires Node.js 18+, but we default the minimtum version to the latest LTS
 release of 22.15 at the time of this writing, which includes support for things like
 `import.meta.dirname`.
+
+Also, the minimum supported version of TypeScript is 4.9 for Material UI 7.
