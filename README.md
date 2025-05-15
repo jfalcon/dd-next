@@ -43,6 +43,8 @@ Once Pigment CSS (Zero-Runtime CSS-in-JS) becomes stable enough for the enterpri
 with Turbopack, it should be considered as to remove the runtime performance hit of using styles
 via JavaScript.
 
+And, this isn't fully responsive yet as it's just a demo.
+
 ## Notes
 
 Next.js 15 requires Node.js 18+, but we default the minimtum version to the latest LTS

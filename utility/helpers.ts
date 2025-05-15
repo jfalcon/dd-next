@@ -33,6 +33,7 @@ export const getBaseUrl = () => {
     } else if (process.env.VERCEL_URL) {
       return `https://${process.env.VERCEL_URL}`;
     } else
+      // TODO: eventually pull the port from an environment config and only default if not found
       return 'http://localhost:3000';
   } else {
     // consider window.top.location.origin if being cloaked by an iframe

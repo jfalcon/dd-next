@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getBaseUrl } from '@/app/utility';
+import { getBaseUrl } from '@/utility';
 
 // this should dynamically build a sitemap for SEO reasons but *only* for public sites,
 // adding the stub here to show it's important to include for public sites and is
