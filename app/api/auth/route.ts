@@ -1,6 +1,6 @@
 import { HttpStatusCode, RestResponse } from '@/types';
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   const response: RestResponse<string> = {
     success: false,
   };
@@ -10,10 +10,14 @@ export async function GET(request: Request) {
 
     // in real life we'd do something with these, but
     // for the demo we accept anyting... nice
-    const { user, password } = body; // eslint-disable-line @typescript-eslint/no-unused-vars
+    const { user = '', password = '' } = body;
+    const result = (user.trim().length > 0) && (password.trim().length > 0);
 
     // this will convert the enum into a readable string
     response.payload = HttpStatusCode[HttpStatusCode.Ok];
+
+    // set this last to avoid try short circuiting
+    response.success = result;
 
     return new Response(JSON.stringify(response), {
       status: HttpStatusCode.Ok,

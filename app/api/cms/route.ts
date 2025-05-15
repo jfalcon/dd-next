@@ -20,6 +20,9 @@ mattis faucibus, felis est semper orci, at feugiat mauris lectus venenatis nulla
 facilisis nulla. Integer sed rhoncus justo, ac euismod nunc.';
     // cspell:enable
 
+    // set this last to avoid try short circuiting
+    response.success = true;
+
     return new Response(JSON.stringify(response), {
       status: HttpStatusCode.Ok,
       headers: { 'Content-Type': 'application/json' },
