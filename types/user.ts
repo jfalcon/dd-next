@@ -1,5 +1,5 @@
-// don't use ? since we want to be explicit via nulls, also, in
-// strict mode, strings cannot be undefined or null by default
+// don't use ? since we want to be explicit via nulls for this, also
+// in strict mode, strings cannot be undefined or null by default
 export interface UserProps {
   createdAt: Date;
   email: string;
