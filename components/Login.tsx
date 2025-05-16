@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { useSessionStorage } from '@/hooks';
 
 interface FormErrors {
   email?: string;
@@ -33,6 +34,7 @@ export default function Login() {
   // for demo only, we default a username and password
   // super secure login system we got going here
   const [email, setEmail] = useState('john@doe.com');
+  const [, setUser] = useSessionStorage('user', '');
   const [password, setPassword] = useState('123456789');
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -46,8 +48,8 @@ export default function Login() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // TODO: handle real login
-      // console.log('Login data:', { email, password });
+      // TODO: handle real login, note we only store the user after validation
+      setUser(email);
     }
   };
 
