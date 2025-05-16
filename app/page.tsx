@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+import Login from '@/components/Login';
 import Sidebar from '@/components/Sidebar';
 import styles from './page.module.css';
 
@@ -11,10 +12,9 @@ export default function Home() {
         </Grid>
         <Grid size="grow">
           <Sidebar>
-            <>
-              <p>size=grow</p>
-              <div className={styles.soldier}></div>
-            </>
+            <div className={styles.soldier}>
+              <Login />
+            </div>
           </Sidebar>
         </Grid>
       </Grid>

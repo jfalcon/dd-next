@@ -10,6 +10,7 @@ approximately. It can be shimmed or polyfilled to support older browsers if nece
 * Automated Spellcheck
 * CSS Variable Theming
 * Conventional Commits Linting
+* Dark and Light Modes
 * EditorConfig Support
 * Gated Commits (overridden with --no-verify)
 * Git Attributes for LFS Support

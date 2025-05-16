@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { ThemeProvider } from '@mui/material/styles';
+
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { font, theme } from '@/app/theme';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
+import AppThemeProvider, { font } from '@/context/AppTheme';
 
 import '@/app/globals.css';
 
@@ -17,13 +18,13 @@ export default function RootLayout({children,}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${font.variable} blur`}>
-        {/* enableCssLayer is required for CSS modules */}
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>
+        <AppRouterCacheProvider options={{ enableCssLayer: false }}>
+          <AppThemeProvider>
+            <InitColorSchemeScript attribute="class" />
             {children}
-          </ThemeProvider>
+          </AppThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
