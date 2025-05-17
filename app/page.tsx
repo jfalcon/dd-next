@@ -1,18 +1,11 @@
-// 'use client';
-
-//import { useState } from 'react';
 import Fade from '@mui/material/Fade';
 import Grid from '@mui/material/Grid';
 import Login from '@/components/Login';
 import Sidebar from '@/components/Sidebar';
 import Slide from '@mui/material/Slide';
 import styles from './page.module.css';
-// import { useUser } from '@/hooks';
 
 export default function Home() {
-  // const [user] = useUser();
-  //const [loggedIn, setLoggedIn] = useState(false);
-
   return (
     <main>
       <Grid container spacing={3}>

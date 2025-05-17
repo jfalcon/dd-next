@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { isClient } from '@/utility';
 
 type Storage = object | number | string;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function getStorageValue(key: string, defaultValue: Storage) {
+function getStorageValue<T extends Storage>(key: string, defaultValue?: T) {
   let result: Storage | undefined;
 
   if (isClient()) {
@@ -28,12 +29,12 @@ function getStorageValue(key: string, defaultValue: Storage) {
     }
   }
 
-  return (result || defaultValue) as Storage;
+  return (result || defaultValue) as T;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function setStorageValue(key: string, value: Storage) {
+function setStorageValue<T extends Storage>(key: string, value: T) {
   if (isClient()) {
     let x: string;
 
@@ -42,7 +43,7 @@ function setStorageValue(key: string, value: Storage) {
     if (typeof value === 'object')
       x = JSON.stringify(value);
     else
-      x = value.toString().trim();
+      x = (value ?? '').toString().trim();
 
     window.localStorage.setItem(key, window.btoa(x));
   }
@@ -50,13 +51,13 @@ function setStorageValue(key: string, value: Storage) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const useLocalStorage = (key: string, defaultValue: Storage) => {
+export const useLocalStorage = <T extends Storage>(key: string, defaultValue?: T) => {
   const k = key.trim();
 
   const [value, setValue] = useState<Storage>(() => getStorageValue(k, defaultValue));
   useEffect(() => setStorageValue(k, value), [k, value]);
 
-  return [value, setValue] as const;
+  return [value, setValue] as [T, Dispatch<SetStateAction<Storage>>];
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

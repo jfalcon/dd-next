@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import AppThemeProvider, { font } from '@/context/AppTheme';
+import UserInfoProvider from '@/context/UserInfo';
 
 import '@/app/globals.css';
 
@@ -21,10 +22,12 @@ export default function RootLayout({children,}: Readonly<{
     <html lang="en" suppressHydrationWarning>
       <body className={`${font.variable} blur`}>
         <AppRouterCacheProvider options={{ enableCssLayer: false }}>
-          <AppThemeProvider>
-            <InitColorSchemeScript attribute="class" />
-            {children}
-          </AppThemeProvider>
+          <UserInfoProvider>
+            <AppThemeProvider>
+              <InitColorSchemeScript attribute="class" />
+              {children}
+            </AppThemeProvider>
+          </UserInfoProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
