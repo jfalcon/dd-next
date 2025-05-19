@@ -84,7 +84,7 @@ via JavaScript.
 
 ## Notes
 
-Next.js 15 requires Node.js 18+, but we default the minimtum version to the latest LTS
+Next.js 15 requires Node.js 18+, but we default the minimum version to the latest LTS
 release of 22.15 at the time of this writing, which includes support for things like
 `import.meta.dirname`.
 
